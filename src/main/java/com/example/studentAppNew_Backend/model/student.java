@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 @Table(name = "student")
 public class student {
     @Id
-    @GeneratedValue
+    @GeneratedValue()
     private int id;
     private String name;
     private String admNo;
@@ -29,7 +29,13 @@ public class student {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", admNo='" + admNo + '\'' +
+                ", rollNo=" + rollNo +
+                ", college='" + college + '\'' +
+                '}';
     }
 
     public int getId() {
