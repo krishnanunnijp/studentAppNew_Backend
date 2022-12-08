@@ -28,4 +28,20 @@ public class studentController {
     public List<student> view(){
         return (List<student>) dao.findAll();
     }
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/search",consumes = "application/json",produces = "application/json")
+    public List<student> search(@RequestBody student s) {
+
+
+        return dao.SearchStudents(s.getName());
+
+    }
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/delete",consumes = "application/json",produces = "application/json")
+    public HashMap<String,String> delete(@RequestBody student s) {
+        HashMap<String, String> map = new HashMap<>();
+        dao.deleteStudent(s.getId());
+        map.put("status","success");
+        return map;
+    }
 }
